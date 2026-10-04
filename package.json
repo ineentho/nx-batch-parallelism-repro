@@ -4,7 +4,7 @@
   "private": true,
   "description": "Minimal repro: a batch executor monopolizes the Nx task orchestrator, so no discrete task starts while it runs",
   "scripts": {
-    "repro": "node scripts/repro.mjs"
+    "repro": "nx run-many -t build --skip-nx-cache --parallel=2 --output-style=static"
   },
   "dependencies": {
     "batch-executor": "file:./plugins/batch-executor",
