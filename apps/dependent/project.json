@@ -1,0 +1,10 @@
+{
+  "name": "dependent",
+  "implicitDependencies": [":batch-a"],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": { "command": "node scripts/dependent.mjs" }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "nx-batch-parallelism-repro",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Minimal repro: a batch executor monopolizes the Nx task orchestrator, so no discrete task starts while it runs",
+  "scripts": {
+    "repro": "node scripts/repro.mjs"
+  },
+  "dependencies": {
+    "batch-executor": "file:./plugins/batch-executor",
+    "nx": "23.2.1"
+  }
+}

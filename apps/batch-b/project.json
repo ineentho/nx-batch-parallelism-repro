@@ -1,0 +1,7 @@
+{
+  "name": "batch-b",
+  "implicitDependencies": [":batch-a"],
+  "targets": {
+    "build": { "executor": "batch-executor:build" }
+  }
+}

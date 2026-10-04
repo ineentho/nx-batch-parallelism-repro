@@ -1,0 +1,9 @@
+{
+  "name": "independent",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": { "command": "node scripts/independent.mjs" }
+    }
+  }
+}

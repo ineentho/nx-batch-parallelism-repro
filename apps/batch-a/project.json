@@ -1,0 +1,6 @@
+{
+  "name": "batch-a",
+  "targets": {
+    "build": { "executor": "batch-executor:build" }
+  }
+}

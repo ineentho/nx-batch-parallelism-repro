@@ -1,0 +1,12 @@
+{
+  "executors": {
+    "build": {
+      "implementation": "./build.impl.js",
+      "batchImplementation": "./batch.impl.js",
+      "schema": "./schema.json",
+      "description": "A batch executor that sleeps, standing in for @nx/gradle / @nx/maven / @nx/oxlint:lint.",
+      "preferBatch": true,
+      "batchParallelismCost": 1
+    }
+  }
+}
