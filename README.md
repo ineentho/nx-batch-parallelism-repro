@@ -7,7 +7,7 @@ Maven or Java involved.
 
 ```bash
 npm install
-npm run repro     # nx run-many -t build --skip-nx-cache --parallel=2 --output-style=static
+nx run-many -t build --skip-nx-cache --parallel=2 --output-style=static
 ```
 
 ## The workspace
@@ -29,22 +29,19 @@ measurement.
 ## Baseline: nx 23.2.1
 
 ```text
-BATCH_RUN_START 1791133044336
-BATCH_TASK_START batch-a:build 1791133044336
-BATCH_TASK_END batch-a:build 1791133049337
-BATCH_TASK_START batch-b:build 1791133049337
-BATCH_TASK_END batch-b:build 1791133054339
-BATCH_RUN_END 1791133054339
+BATCH_RUN_START 1791133098308
+BATCH_TASK_END batch-a:build 1791133103310
+BATCH_TASK_END batch-b:build 1791133108313
+BATCH_RUN_END 1791133108313
 ...
-DEPENDENT_START 1791133054390
-DEPENDENT_END 1791133055394
-INDEPENDENT_START 1791133054390
-INDEPENDENT_END 1791133059394
+DEPENDENT_START 1791133108356
+INDEPENDENT_START 1791133108357
+INDEPENDENT_END 1791133113360
 ```
 
-The batch runs 1791133044336 → 1791133054339. `independent` has no
+The batch runs 1791133098308 → 1791133108313. `independent` has no
 dependencies and `--parallel=2` leaves a free slot the whole time, yet it
-starts at 1791133054390 — **51 ms after the batch exited**, in the same
+starts at 1791133108357 — **44 ms after the batch exited**, in the same
 millisecond as `dependent`, which genuinely had to wait for `batch-a`.
 
 This is a regression from 22.6.0, where the orchestrator ran one loop per
@@ -88,7 +85,7 @@ npm pack ./packages/nx --pack-destination /tmp/nx-pack
 
 # here
 npm i /tmp/nx-pack/nx-0.0.1.tgz --no-save
-npm run repro
+nx run-many -t build --skip-nx-cache --parallel=2 --output-style=static
 ```
 
 ## Notes

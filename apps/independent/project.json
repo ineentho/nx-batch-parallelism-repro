@@ -3,7 +3,9 @@
   "targets": {
     "build": {
       "executor": "nx:run-commands",
-      "options": { "command": "node scripts/independent.mjs" }
+      "options": {
+        "command": "node -e \"const t = Date.now; console.log('INDEPENDENT_START', t()); setTimeout(() => console.log('INDEPENDENT_END', t()), 5000)\""
+      }
     }
   }
 }
